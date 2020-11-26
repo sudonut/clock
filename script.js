@@ -12,7 +12,7 @@ function time() {
 // Three variables are created to determine what part of the day it is: Morn/Noon/Evening
   let morning = (date.getHours() >= 5 && date.getHours() < 12);
   let afternoon = (date.getHours() >= 12 && date.getHours() < 18);
-  let evening = (date.getHours() >= 18 && date.getHours() < 5);
+  let evening = (date.getHours() >= 18 || date.getHours() < 6);
 
   // This functions changes the background image depending on the time of day
   function timeOfDay() {

@@ -2,8 +2,10 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Nanum Gothic', sans-serif;
-  font-size: 2.5rem;
+  font-family: 'Roboto Mono', monospace;
+  font-size: 2.4rem;
+  -webkit-text-stroke: 2.5px black;
+  letter-spacing: -4px;
 }
 
 body { 
