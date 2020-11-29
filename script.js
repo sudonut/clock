@@ -6,7 +6,10 @@ function time() {
   let hours = date.getHours() > 12 ? date.getHours() - 12 : date.getHours();
   let minutes = date.getMinutes() < 10 ? "0" + date.getMinutes() : date.getMinutes();
   let seconds = date.getSeconds() < 10 ? "0" + date.getSeconds() : date.getSeconds();
-  let am_pm = date.getHours() >= 12 ? "PM" : "AM" 
+  let am_pm = date.getHours() >= 12 ? "PM" : "AM"
+  if (hours === 0) {
+    hours = 12;
+  }
   clock.textContent = `${hours}:${minutes}:${seconds}${am_pm}`;
   
 // Three variables are created to determine what part of the day it is: Morn/Noon/Evening
@@ -18,7 +21,7 @@ function time() {
   function timeOfDay() {
     if (morning === true) {
       document.body.style.background = "url('img/morning1.jpg') no-repeat center center fixed"
-    } else if (afternoon === true) {
+    } else if (afternoon === true) {1
       document.body.style.background = "url('img/day3.jpg') no-repeat center center fixed"
     } else if (evening === true) {
       document.body.style.background = "url('img/night1.jpg') no-repeat center center fixed"
