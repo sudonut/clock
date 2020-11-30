@@ -5,14 +5,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="style.css">
   <link rel="preconnect" href="https://fonts.gstatic.com">
-  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@200&display=swap" rel="stylesheet">
-  <title>Clock</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@200;300;400&display=swap" rel="stylesheet">   <title>Clock</title>
 </head>
 <body>
   <div class="container">
-    <h1 class="clock"></h1>
+    <h1 class="nonEditable" id="clock"></h1>
+    <div id="greeting-container">
+      <span class="nonEditable" id="greeting"></span>
+      <span id="name" contenteditable="true"></span>
+      <span class="nonEditable" id="period">.</span>
+    </div>
   </div>
-
     <script src="script.js"></script>
 </body>
 </html>

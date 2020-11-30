@@ -3,9 +3,6 @@
   padding: 0;
   box-sizing: border-box;
   font-family: 'Roboto Mono', monospace;
-  font-size: 2.4rem;
-  -webkit-text-stroke: 2.5px black;
-  letter-spacing: -4px;
 }
 
 body { 
@@ -17,10 +14,36 @@ body {
 }
 
 h1 {
+  font-size: 8rem;
+  font-weight: 400;
+  -webkit-text-stroke: 2.5px black;
+  letter-spacing: -4px;
   color: white;
-  display: flex;
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%)
+}
+
+.container {
+display: flex;
+justify-content: center;
+align-items: center;
+min-height: 100vh;
+flex-direction: column;
+}
+
+.nonEditable{      
+  user-select: none;
+}
+
+#greeting-container {
+  -webkit-text-stroke: .8px black;
+}
+
+#period {
+  margin-left: -18px;
+}
+
+span {
+  color: white;
+  left: 29%;
+  top: 57%;
+  font-size: 2.7rem;
 }

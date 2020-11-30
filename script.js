@@ -1,4 +1,7 @@
-let clock = document.querySelector(".clock");
+// DOM Elements
+const clock = document.getElementById('clock');
+const name = document.getElementById('name');
+const greeting = document.getElementById('greeting');
 
 // This functions grabs the current time 
 function time() {
@@ -11,26 +14,55 @@ function time() {
     hours = 12;
   }
   clock.textContent = `${hours}:${minutes}:${seconds}${am_pm}`;
-  
-// Three variables are created to determine what part of the day it is: Morn/Noon/Evening
-  let morning = (date.getHours() >= 5 && date.getHours() < 12);
-  let afternoon = (date.getHours() >= 12 && date.getHours() < 18);
-  let evening = (date.getHours() >= 18 || date.getHours() < 6);
+}
 
-  // This functions changes the background image depending on the time of day
-  function timeOfDay() {
-    if (morning === true) {
-      document.body.style.background = "url('img/morning1.jpg') no-repeat center center fixed"
-    } else if (afternoon === true) {1
-      document.body.style.background = "url('img/day3.jpg') no-repeat center center fixed"
-    } else if (evening === true) {
-      document.body.style.background = "url('img/night1.jpg') no-repeat center center fixed"
-    }
+// This function changes the background and greeting depending on the time of day
+function backgroundGreeting() {
+  let today = new Date();
+  hour = today.getHours();
+
+  if (hour < 12) {
+    // Morning
+    document.body.style.background = "url('img/morning1.jpg') no-repeat center center fixed"
+    greeting.textContent = "Good Morning,";
+  } else if (hour < 18) {
+    // Afternoon
+    document.body.style.background = "url('img/day3.jpg') no-repeat center center fixed"
+    greeting.textContent = "Good Afternoon,";
+  } else {
+    // Evening
+    document.body.style.background = "url('img/night1.jpg') no-repeat center center fixed"
+    greeting.textContent = "Good Evening,"
   }
-  timeOfDay();
   document.querySelector("body").style.backgroundSize = "cover";
 }
 
+// This function creates a placeholder value within the name ID if the user has not entered their name.
+function getName() {
+  if (localStorage.getItem('name') === null) {
+    name.textContent = '[What is your name?]';
+  } else {
+    name.textContent = localStorage.getItem('name');
+  }
+}
+
+// This function is called when the Enter key is pressed within the name span.
+// When enter is pressed the value within the name span is saved locally.
+function setName(event) {
+  if (event.type === 'keypress') {
+    if (event.key === 'Enter') {
+      localStorage.setItem('name', event.target.innerText);
+      name.blur();
+    }
+  }
+}
+
+// Event Listeners
+name.addEventListener('keypress', setName);
+
+// Function Runs
+getName();
+backgroundGreeting();
 time();
 setInterval(() => {
   time()}, 1000);
