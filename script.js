@@ -36,7 +36,6 @@ function backgroundGreeting() {
   }
   document.querySelector("body").style.backgroundSize = "cover";
 }
-
 // This function creates a placeholder value within the name ID if the user has not entered their name.
 function getName() {
   if (localStorage.getItem('name') === null) {
