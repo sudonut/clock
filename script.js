@@ -2,6 +2,7 @@
 const clock = document.getElementById('clock');
 const name = document.getElementById('name');
 const greeting = document.getElementById('greeting');
+const mobile = (window.innerWidth < 768)
 
 // This functions grabs the current time 
 function time() {
@@ -13,7 +14,11 @@ function time() {
   if (hours === 0) {
     hours = 12;
   }
-  clock.textContent = `${hours}:${minutes}:${seconds}${am_pm}`;
+  if (window.innerWidth < 768) {
+    clock.textContent = `${hours}:${minutes}`;
+  } else {
+    clock.textContent = `${hours}:${minutes}:${seconds}${am_pm}`;
+  }
 }
 
 // This function changes the background and greeting depending on the time of day

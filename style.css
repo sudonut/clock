@@ -36,6 +36,7 @@ flex-direction: column;
 #greeting-container {
   display: inline-flex;
   -webkit-text-stroke: .8px black;
+  font-size: 2.7rem;
 }
 
 #name {
@@ -50,5 +51,21 @@ span {
   color: white;
   left: 29%;
   top: 57%;
-  font-size: 2.7rem;
+}
+
+@media only screen and (max-width: 510px) {
+  h1 {
+    font-size: 6rem;
+    -webkit-text-stroke: 2px black;
+  }
+
+  #greeting-container {
+    font-size: 1.6rem;
+    -webkit-text-stroke: 0.5px black;
+  }
+
+  #name {
+    max-width: 138px;
+    min-width: 60px;
+  }
 }
