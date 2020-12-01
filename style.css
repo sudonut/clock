@@ -34,11 +34,16 @@ flex-direction: column;
 }
 
 #greeting-container {
+  display: inline-flex;
   -webkit-text-stroke: .8px black;
 }
 
-#period {
-  margin-left: -18px;
+#name {
+  display: inline-flex;
+  max-width: 500px;
+  min-width: 103px;
+  overflow: hidden;
+  white-space: nowrap;
 }
 
 span {

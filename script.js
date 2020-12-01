@@ -38,8 +38,8 @@ function backgroundGreeting() {
 }
 // This function creates a placeholder value within the name ID if the user has not entered their name.
 function getName() {
-  if (localStorage.getItem('name') === null) {
-    name.textContent = '[What is your name?]';
+  if (localStorage.getItem('name') === "" || null) {
+    name.textContent = '[Your Name]';
   } else {
     name.textContent = localStorage.getItem('name');
   }
