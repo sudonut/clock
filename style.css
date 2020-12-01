@@ -58,6 +58,14 @@ span {
 }
 
 @media only screen and (max-width: 510px) {
+  html {
+    overflow: hidden;
+  }
+
+  body {
+    overflow-y: scroll;
+  }
+
   h1 {
     font-size: 6rem;
     -webkit-text-stroke: 2px black;
