@@ -47,6 +47,10 @@ flex-direction: column;
   white-space: nowrap;
 }
 
+#name:empty:before  {
+  content: attr(data-placeholder);
+}
+
 span {
   color: white;
   left: 29%;
