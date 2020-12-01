@@ -2,7 +2,6 @@
 const clock = document.getElementById('clock');
 const name = document.getElementById('name');
 const greeting = document.getElementById('greeting');
-const mobile = (window.innerWidth < 768)
 
 // This functions grabs the current time 
 function time() {
@@ -14,7 +13,7 @@ function time() {
   if (hours === 0) {
     hours = 12;
   }
-  if (window.innerWidth < 768) {
+  if (window.innerWidth <= 800) {
     clock.textContent = `${hours}:${minutes}`;
   } else {
     clock.textContent = `${hours}:${minutes}:${seconds}${am_pm}`;
@@ -26,11 +25,11 @@ function backgroundGreeting() {
   let today = new Date();
   hour = today.getHours();
 
-  if (hour < 12) {
+  if (hour >= 5 && hour < 12) {
     // Morning
     document.body.style.background = "url('img/morning1.jpg') no-repeat center center fixed"
     greeting.textContent = "Good Morning,";
-  } else if (hour < 18) {
+  } else if (hour >= 12 && hour < 18) {
     // Afternoon
     document.body.style.background = "url('img/day3.jpg') no-repeat center center fixed"
     greeting.textContent = "Good Afternoon,";
@@ -44,7 +43,7 @@ function backgroundGreeting() {
 // This function creates a placeholder value within the name ID if the user has not entered their name.
 function getName() {
   if (localStorage.getItem('name') === null) {
-    name.textContent = '[Your Name]';
+    name.textContent = '[name]';
   } else {
     name.textContent = localStorage.getItem('name');
   }
@@ -58,11 +57,14 @@ function setName(event) {
       localStorage.setItem('name', event.target.innerText);
       name.blur();
     }
+  } else {
+    localStorage.setItem('name', event.target.innerText);
   }
 }
 
 // Event Listeners
 name.addEventListener('keypress', setName);
+name.addEventListener('blur', setName);
 
 // Function Runs
 getName();
